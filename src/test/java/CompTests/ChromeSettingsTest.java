@@ -11,7 +11,6 @@ public class ChromeSettingsTest extends BaseTest {
 		chromeSettingsPage = new ChromeSettingsPage(driver);
 	}
 
-
 	@Test
 	public void chromeSettingsTest_shouldBlockPopupsAndManageSites() {
 		chromeSettingsPage.switchToIframe();

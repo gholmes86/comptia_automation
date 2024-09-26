@@ -29,8 +29,8 @@ public class ChromeSettingsPage extends BasePage {
 	}
 
 	public void switchToIframe() {
-		driver.switchTo().frame("labContent"); // Switching to iframe by its ID
-		driver.switchTo().frame("simFrameContent"); // Switching to iframe by its ID
+		driver.switchTo().frame("labContent");
+		driver.switchTo().frame("simFrameContent");
 
 	}
 
