@@ -24,7 +24,7 @@ public class ChromeSettingsPage extends BasePage {
 	private By addConfirmButton = By.cssSelector("[data-automationid='editsite-add']");
 
 	public ChromeSettingsPage(WebDriver driver) {
-		super(driver,35);
+		super(driver, 35);
 		visit("/");
 	}
 
@@ -36,7 +36,7 @@ public class ChromeSettingsPage extends BasePage {
 
 	public void navigateToPopupsSettings() {
 		elementIsDisplayed(chromeIcon);
-		clickElement(driver,chromeIcon,20);
+		clickElement(driver, chromeIcon, 20);
 		elementIsDisplayed(settingsIcon);
 		find(settingsIcon).click();
 		elementIsDisplayed(settingsMenu);
@@ -69,11 +69,8 @@ public class ChromeSettingsPage extends BasePage {
 		System.out.println("Site '" + siteUrl + "' has been blocked.");
 	}
 
-	public boolean verifyBlockedSite(String siteUrl) {
-		String formattedUrl = siteUrl.replace(".", "-").replace("*", ""); // Format the site URL to match the expected attribute pattern
-		By blockedSiteVerification = By.cssSelector("[data-automationid='icontext-" + formattedUrl + "']");
-		boolean isDisplayed = isDisplayed(blockedSiteVerification);
-		assertTrue("Site '" + siteUrl + "' should be displayed as blocked.", isDisplayed);
-		return isDisplayed;
+	public void verifyBlockedSite(String siteUrl) {
+		String formattedUrl = siteUrl.replace(".", "-").replace("*", "");
+		assertTrue(elementIsDisplayed(By.cssSelector("[data-automationid='icontext-" + formattedUrl + "']")));
 	}
-}
+	}

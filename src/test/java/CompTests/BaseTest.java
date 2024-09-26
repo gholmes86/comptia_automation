@@ -37,7 +37,7 @@ public class BaseTest implements Config {
 					options.addArguments("--kiosk");
 					options.addArguments("--start-maximized");
 					options.addArguments("--incognito");
-					options.addArguments("--headless");
+				options.addArguments("--headless");
 				}
 				else if (browser.equals("firefox")) {
 					WebDriverManager.firefoxdriver().setup();
@@ -57,25 +57,26 @@ public class BaseTest implements Config {
 					}
 					case "chrome": {
 						System.out.print(WebDriverManager.chromedriver().getDriverVersions());
-						WebDriverManager.chromedriver().setup();
+						WebDriverManager.chromedriver().browserVersion("129.0.6668.71").setup();
+
 						ChromeOptions options = new ChromeOptions();
 						options.addArguments("--kiosk");
 						options.addArguments("--no-sandbox"); // Bypass OS security model
 
-						options.addArguments("--headless");
+		//				options.addArguments("--headless");
 
 						options.setExperimentalOption("useAutomationExtension", false);
 						options.addArguments("--incognito");
 						//options.addArguments("--start-maximized"); // open Browser in maximized mode
 						options.addArguments("--window-size=4000,3000");
 
-						options.addArguments("--disable-infobars"); // disabling infobars
+						options.addArguments("--disable-infobars");
 
-						options.addArguments("--disable-extensions"); // disabling extensions
+						options.addArguments("--disable-extensions");
 
-						options.addArguments("--disable-gpu"); // applicable to windows os only
+						options.addArguments("--disable-gpu");
 
-						options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+						options.addArguments("--disable-dev-shm-usage");
 
 						driver = new ChromeDriver(options);
 						driver.manage().window().maximize();
